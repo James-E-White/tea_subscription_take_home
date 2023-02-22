@@ -5,3 +5,4 @@ FactoryBot.define do
     email { Faker::Internet.email }
     address { Faker::Address.full_address }
   end
+end

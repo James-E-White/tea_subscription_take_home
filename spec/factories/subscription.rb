@@ -5,3 +5,4 @@ FactoryBot.define do
     status { Faker::Boolean.boolean }
     frequency { Faker::Number.between(from: 3, to: 45) }
   end
+end

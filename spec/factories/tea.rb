@@ -5,3 +5,4 @@ FactoryBot.define do
     temperature { Faker::Number.within(range: 170..200) }
     brew_time { Faker::Number.within(range: 1..6) }
   end
+end
