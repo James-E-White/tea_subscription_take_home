@@ -7,4 +7,8 @@ require 'rails_helper'
     it { should validate_presence_of :email }
     it { should validate_presence_of :address }
   end
+    describe 'relationships' do
+    it { should have_many :subscriptions }
+    it { should have_many(:teas).through(:subscriptions) }
+  end
 end
