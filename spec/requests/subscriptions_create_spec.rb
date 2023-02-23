@@ -18,7 +18,7 @@ describe "Subscriptions Create Requests" do
 
     data = JSON.parse(response.body, symbolize_names: true)
     expect(data).to be_a(Hash)
-    
+   
     expect(data[:data][:attributes]).to have_key(:title)
     expect(data[:data][:attributes]).to have_key(:price)
     expect(data[:data][:attributes]).to have_key(:status)

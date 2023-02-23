@@ -1,6 +1,6 @@
 class SubscriptionsController < ApplicationController
   def create
-    subscription = Subscription.create(new_params)
+    subscription = Subscription.create(subscription_params)
     if subscription.save
       body = SubscriptionSerializer.new(subscription)
       render json: body, status: 201
@@ -9,9 +9,16 @@ class SubscriptionsController < ApplicationController
     end
   end
 
+  def update
+    subscription = Subscription.update(subscription_params)
+    body = SubscriptionSerializer.new(subscription)
+    render json: body, status: 201
+   
+  end
+
   private
 
-  def new_params
+  def subscription_params
     params.permit(:title, :price, :status, :frequency, :tea_id, :customer_id)
   end
 end
