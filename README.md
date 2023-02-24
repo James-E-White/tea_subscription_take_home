@@ -1,59 +1,119 @@
-# README
+# Tea Subscription Service
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Rails API for a Tea Subscription Service based on [this project](https://mod4.turing.edu/projects/take_home/take_home_be)
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
+## Architecture and Design
 
-* Database creation
+<p> 
+<img src=https://user-images.githubusercontent.com/108167041/221061618-e9fd2d27-6c25-49d7-86dd-453dc92a7633.png />
 
-* Database initialization
+  
+</p>
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## Subscription End Points:
 
-* Deployment instructions
+### View all of a given Customers Subscriptions
+Returns all of the subscriptions of a given Customer.
 
-* ...
-Requirements:
-At a minimum, you must create:
+`GET  /customers/:customer_id/subscriptions` 
 
-An endpoint to subscribe a customer to a tea subscription
-An endpoint to cancel a customer’s tea subscription
-An endpoint to see all of a customer’s subsciptions (active and cancelled)
+<b>Example Input:</b>
 
-Things we’ll be looking for:
-A strong understanding of Rails
-Ability to create restful routes
-Demonstration of well-organized code, following OOP
-Test Driven Development
-Clear documentation
+`GET http://localhost:3000/customers/1/subscriptions`
 
-Data Details
-Note: The below data outlines are meant to be a guide for data details you may use in the application. If you want to change or include more information please do so. Using fake data in your application is okay.
+<b>Example Output:</b>
 
-Tea-
-Title
-Description
-Temperature
-Brew Time
+```json
+{
+    "data": [
+        {
+            "id": "1",
+            "type": "subscription",
+            "attributes": {
+                "title": "Tea Subscription # 1",
+                "price": 15.50,
+                "status": true,
+                "frequency": 30,
+                "tea_id": 1,
+                "customer_id": 1
+            }
+        }
+    ]
+}
+```
 
-Customer-
-First Name
-Last Name
-Email
-Address
+### Create Subscription
+Creates a Subscription with a customer and a specific tea
 
-Subscription-
-Title
-Price
-Status
-Frequency
+`POST /subscriptions` 
 
+<b>Example Input:</b>
+
+`POST http://localhost:3000/subscriptions?title=Tea Subscription #2&price=45.99&status=true&frequency=15&tea_id=2&customer_id=2`
+
+<b>Example Output:</b>
+
+```json
+{
+    "data": {
+        "id": "2",
+        "type": "subscription",
+        "attributes": {
+            "title": "Tea Subscription #2",
+            "price": 45.99,
+            "status": true,
+            "frequency": 15,
+            "tea_id": 2,
+            "customer_id": 2
+        }
+    }
+}
+```
+
+### Update Subscription
+Lets you update a subscription, specifically if the status is true or false (active or inactive)
+
+`PATCH  /subscriptions` 
+
+<b>Example Input:</b>
+
+`PATCH http://localhost:3000/subscriptions/?status=true`
+
+<b>Example Output:</b>
+
+```json
+{
+    "data": {
+        "id": "3",
+        "type": "subscription",
+        "attributes": {
+            "title": "Tea Subscription #3",
+            "price": 35.00,
+            "status": true,
+            "frequency": 15,
+            "tea_id": 3,
+            "customer_id": 
+        }
+    }
+}
+```
+##
+## Local Setup
+
+* Fork this repository
+* Clone your fork
+* From the command line, install gems and set up your DB:
+    * `bundle`
+    * `rails db:create`
+* Run the test suite with `bundle exec rspec`.
+* Run your development server with `rails s` to see the app in action.
+
+## Versions
+
+- Ruby 2.7.4
+
+- Rails 6.0.6.1
