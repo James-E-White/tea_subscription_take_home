@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Subscriptions Create Requests" do
+RSpec.describe "Subscriptions Create Requests" do
   it "adds a new subscription to the customer" do
     
     customer_1 = Customer.create!(first_name: "Ava", last_name: "White", email: "ava@.email", address: "8675309 dream st")

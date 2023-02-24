@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Subscriptions Cancel Requests" do
+RSpec.describe "Subscriptions Cancel Requests" do
   it "it cancels the subscription for a customer" do
     
     customer_1 = Customer.create!(first_name: "Ava", last_name: "White", email: "ava@.email", address: "8675309 dream st")
