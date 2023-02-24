@@ -27,24 +27,7 @@ Returns all of the subscriptions of a given Customer.
 
 <b>Example Output:</b>
 
-```json
-{
-    "data": [
-        {
-            "id": "1",
-            "type": "subscription",
-            "attributes": {
-                "title": "Tea Subscription # 1",
-                "price": 15.50,
-                "status": true,
-                "frequency": 30,
-                "tea_id": 1,
-                "customer_id": 1
-            }
-        }
-    ]
-}
-```
+
 
 ### Create Subscription
 Creates a Subscription with a customer and a specific tea
@@ -55,24 +38,7 @@ Creates a Subscription with a customer and a specific tea
 
 `POST http://localhost:3000/subscriptions?title=Tea Subscription #2&price=45.99&status=true&frequency=15&tea_id=2&customer_id=2`
 
-<b>Example Output:</b>
 
-```json
-{
-    "data": {
-        "id": "2",
-        "type": "subscription",
-        "attributes": {
-            "title": "Tea Subscription #2",
-            "price": 45.99,
-            "status": true,
-            "frequency": 15,
-            "tea_id": 2,
-            "customer_id": 2
-        }
-    }
-}
-```
 
 ### Update Subscription
 Lets you update a subscription, specifically if the status is true or false (active or inactive)
@@ -85,22 +51,7 @@ Lets you update a subscription, specifically if the status is true or false (act
 
 <b>Example Output:</b>
 
-```json
-{
-    "data": {
-        "id": "3",
-        "type": "subscription",
-        "attributes": {
-            "title": "Tea Subscription #3",
-            "price": 35.00,
-            "status": true,
-            "frequency": 15,
-            "tea_id": 3,
-            "customer_id": 
-        }
-    }
-}
-```
+
 ##
 ## Local Setup
 
