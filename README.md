@@ -2,7 +2,7 @@
 
 A Rails API for a Tea Subscription Service based on [this project](https://mod4.turing.edu/projects/take_home/take_home_be)
 
-!! Update this with temp as an integer, Status a Boolean- active = true, inactive = false. temp is measured in Fahrenheit as an integer.
+!! Update this with temp as an integer, Status a Boolean- active = true, inactive = false. temp is measured in Fahrenheit as an integer. Price as a float. round.(2) to ensure prices reflect USD.
 
 
 ## Architecture and Design
