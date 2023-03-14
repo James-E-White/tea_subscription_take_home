@@ -23,8 +23,14 @@ RSpec.describe "Subscriptions Index" do
     expect(response).to be_successful
     expect(data).to be_a(Hash)
   
-   
-   
-  
     end
+
+    it 'sad path, cant get subscriptions for customer, customer doesnt exist' do 
+      get "/customers/100/subscriptions"
+
+      parsed_subscription = JSON.parse(response.body, symbolize_names: true)
+      expect(response).to have_http_status 400
+      expect(parsed_subscription[:error]).to eq("customer does not exist")
+    end
+  
 end
