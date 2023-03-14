@@ -41,7 +41,7 @@ RSpec.describe "Subscriptions Create Requests" do
     
 
     expect(status).to eq(400)
-    expect(response.body).to eq("Some info missing, please try again")
+    expect(response.body).to eq("{\"error\":\"Some info missing, please try again\"}")
     end 
   end
 end

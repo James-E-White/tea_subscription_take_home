@@ -7,22 +7,24 @@ class SubscriptionsController < ApplicationController
       body = SubscriptionSerializer.new(subscription)
       render json: body, status: 201
     else
-      render json: 'Some info missing, please try again', status: 400
+      render json: { error: 'Some info missing, please try again' }, status: 400
     end
   end
 
   def update
-    subscription = Subscription.update(subscription_params)
+    if subscription = Subscription.update(subscription_params)
     body = SubscriptionSerializer.new(subscription)
     render json: body, status: 201
+   else
+    render json: { error: 'Unable to subscribe, please try again' }, status: 400
   end
+ end
 
   def index
-    if (customer = Customer.find(params[:customer_id]))
-      subscriptions = customer.subscriptions
-      render json: SubscriptionSerializer.new(subscriptions), status: 201
-    else
-      render json: { error: 'Customer does not exist' }, status: 404
+    if Customer.exists?(params[:customer_id])
+      render json: SubscriptionSerializer.new(@customer.subscriptions)
+    else  
+      render json: { error: "customer does not exist" }, status: 400 
     end
   end
 
