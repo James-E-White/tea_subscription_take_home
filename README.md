@@ -17,7 +17,7 @@ A Rails API for a Tea Subscription Service based on [this project](https://mod4.
 ## Subscription End Points:
 
 ### View all of a given Customers Subscriptions
-Returns all of the subscriptions of a given Customer.
+Returns all of the subscriptions of a given Customer. Included sad path testing for all end points
 
 `GET  /customers/:customer_id/subscriptions` 
 
@@ -41,7 +41,7 @@ Creates a Subscription with a customer and a specific tea
 
 
 ### Update Subscription
-Lets you update a subscription, specifically if the status is true or false (active or inactive)
+Lets you update a subscription, specifically if the status is true or false (active or inactive).
 
 `PATCH  /subscriptions` 
 
