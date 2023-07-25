@@ -40,7 +40,7 @@ RSpec.describe "Subscriptions Create Requests" do
     post '/subscriptions', headers: headers, params: JSON.generate(subscription_params) 
     
 
-    expect(status).to eq(400)
+    expect(response.status).to eq(400)
     expect(response.body).to eq("{\"error\":\"Some info missing, please try again\"}")
     end 
   end
