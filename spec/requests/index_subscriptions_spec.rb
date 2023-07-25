@@ -26,7 +26,8 @@ RSpec.describe "Subscriptions Index" do
     end
 
     it 'sad path, cant get subscriptions for customer, customer doesnt exist' do 
-      get "/customers/100/subscriptions"
+      non_existent_customer_id = 100
+      get "/customers/#{non_existent_customer_id}/subscriptions"
 
       parsed_subscription = JSON.parse(response.body, symbolize_names: true)
       expect(response).to have_http_status 400
