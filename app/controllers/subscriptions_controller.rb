@@ -37,4 +37,7 @@ def index
   def subscription_params
     params.permit(:title, :price, :status, :frequency, :tea_id, :customer_id)
   end
+  #def subscription_params
+  #params.require(:subscription).permit(:title, :price, :status, :frequency, :tea_id, :customer_id)
+  #end
 end
